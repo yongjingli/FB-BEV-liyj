@@ -38,8 +38,12 @@ classes = [
     'motorcycle', 'bicycle', 'pedestrian', 'traffic_cone'
 ]
 
-VERSION= 'v1.0-trainval'
-NUSCENES = 'nuscenes'
+# VERSION= 'v1.0-trainval'
+# NUSCENES = 'nuscenes'
+
+VERSION= 'v1.0-mini'
+NUSCENES = 'nuScenes_mini'
+
 def get_gt(info):
     """Generate gt labels from info.
 
@@ -181,10 +185,15 @@ def add_ann_adj_info(extra_tag, with_lidar_seg=False):
 
 if __name__ == '__main__':
     dataset = 'nuscenes'
-    version = 'v1.0'
+    # version = 'v1.0'
+    # version = 'v1.0-mini'
+    # VERSION = "v1.0-mini"
     train_version = VERSION
+    # train_version = "v1.0-mini"
     root_path = f'./data/{NUSCENES}'
+    # root_path = '/home/dell/liyongjing/programs/FB-BEV-liyj/data/nuScenes_mini'
     extra_tag = 'bevdetv2-nuscenes'
+
     nuscenes_data_prep(
         root_path=root_path,
         info_prefix=extra_tag,

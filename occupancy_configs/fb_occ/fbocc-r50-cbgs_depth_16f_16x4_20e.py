@@ -6,8 +6,9 @@
 
 
 # we follow the online training settings  from solofusion
-num_gpus = 16
-samples_per_gpu = 4
+# num_gpus = 16
+num_gpus = 1
+samples_per_gpu = 2
 num_iters_per_epoch = int(28130 // (num_gpus * samples_per_gpu) * 4.554)
 num_epochs = 20
 checkpoint_epoch_interval = 1
@@ -29,7 +30,8 @@ filter_empty_gt = False
 
 # Long-Term Fusion Parameters
 do_history = False
-history_cat_num = 16
+# history_cat_num = 16
+history_cat_num = 2
 history_cat_conv_out_channels = 160
 
 
@@ -251,9 +253,11 @@ model = dict(
 
 # Data
 dataset_type = 'NuScenesDataset'
-data_root = 'data/nuscenes/'
+# data_root = 'data/nuscenes/'
+data_root = 'data/nuScenes_mini/'
 file_client_args = dict(backend='disk')
-occupancy_path = '/mount/data/occupancy_cvpr2023/gts'
+# occupancy_path = '/mount/data/occupancy_cvpr2023/gts'
+occupancy_path = 'data/nuScenes_mini/gts'
 
 
 train_pipeline = [
